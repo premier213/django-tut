@@ -1,14 +1,14 @@
-FROM python:alpine3.17
+FROM python:3.11-alpine3.17
 
 
 ENV PYTHONUNBUFFERED 1
 
-COPY ./requrements.txt /requrements.txt
-RUN pip install -r requrements.txt
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
 
 RUN mkdir /app
 WORKDIR /app
-COPY ./app /app
+COPY ./app /app/
 
 RUN adduser -D user
 USER user
